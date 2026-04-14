@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipê Labor | Especialistas em Saúde e Segurança do Trabalho</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        oswald: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#00A2A5',
+                        primaryHover: '#008b8e',
+                        bgDark: '#001A23',
+                        bgMain: '#003E52',
+                    },
+                    animation: {
+                        blob: "blob 7s infinite alternate",
+                        float: "float 6s ease-in-out infinite",
+                        pingSlow: "ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        },
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-15px)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #001A23;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #001A23; }
+        ::-webkit-scrollbar-thumb { background: #00A2A5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #008b8e; }
+
+        /* Shine Effect for CTAs */
+        .btn-shine { position: relative; overflow: hidden; }
+        .btn-shine::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg); animation: shine 3s infinite;
+        }
+        @keyframes shine { 100% { left: 200%; } }
+
+        /* Glassmorphism */
+        .glass-dark {
+            background: rgba(0, 62, 82, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+
+        /* FAQ Accordion Transition */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .faq-icon { transition: transform 0.3s ease; }
+
+        /* Canvas Particles positioning */
+        #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- STICKY HEADER -->
+    <header class="fixed w-full top-0 z-50 bg-[#009DA5] transition-all duration-300 shadow-md" id="header">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex-shrink-0 hover:scale-105 transition-transform">
+                <img src="https://imgur.com/70zHUBQ.png" alt="Ipê Labor Logo" class="h-16 w-auto object-contain">
+            </a>
+        </div>
+    </header>
+
+    <!-- SESSÃO 1: DOBRA PRINCIPAL (Hero Section) -->
+    <section class="relative bg-bgDark min-h-screen flex items-center pt-24 overflow-hidden">
+        
+        <!-- Vídeo de Fundo Fullscreen -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-bgDark">
+            <iframe src="https://www.youtube.com/embed/ZuAJPkgoyBg?autoplay=1&mute=1&loop=1&playlist=ZuAJPkgoyBg&controls=0&showinfo=0&rel=0&disablekb=1&modestbranding=1" 
+                    class="absolute top-1/2 left-1/2 w-[300vw] h-[300vh] sm:w-[250vw] sm:h-[250vh] lg:w-[150vw] lg:h-[150vh] -translate-x-1/2 -translate-y-1/2 opacity-40" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media">
+            </iframe>
+            <!-- Máscara de Gradiente para legibilidade do texto -->
+            <div class="absolute inset-0 bg-gradient-to-r from-bgDark/80 via-bgMain/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-bgDark/60 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-12 md:py-20 relative z-10 w-full">
+            
+            <!-- Texto Centralizado à Esquerda -->
+            <div class="w-full lg:max-w-3xl flex flex-col items-start reveal-left active">
+                
+                <!-- Kicker / Label -->
+                <div class="inline-flex items-center gap-2 bg-[#009DA5] px-4 py-1.5 rounded-full mb-6 shadow-lg">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-pingSlow absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
+                    </span>
+                    <span class="text-[11px] font-bold text-white uppercase tracking-widest">SOMOS ESPECIALISTA EM EMPRESAS GRAU DE RISCO 3 & 4 COM + DE 20 COLABORADORES</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-oswald text-4xl md:text-5xl lg:text-[60px] leading-[1.1] font-bold text-white mb-6">
+                    Entregamos um Check-list de regularização do seu processo de medicina & segurança do trabalho em <span class="text-primary">7 dias</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
+                    Vamos até a sua empresa com nossa van equipada com raio-x para atendimento <strong>In Loco</strong>. Sem parada de frota, obra ou serviço. <span class="text-primary font-semibold">ASO na hora</span>
+                </p>
+
+                <!-- CTA Principal -->
+                <div class="flex flex-col items-start gap-4">
+                    <a href="#contato" class="btn-shine inline-flex items-center justify-center px-8 py-4 text-base font-bold tracking-wide text-white bg-primary hover:bg-primaryHover rounded-md transition-all duration-300 shadow-[0_10px_25px_rgba(0,162,165,0.4)] hover:-translate-y-1">
+                        Quero saber mais<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Overlapping Logos -->
+                <div class="mt-12">
+                    <p class="text-xs text-gray-300 uppercase tracking-widest font-semibold mb-3">Empresas que confiam em nós:</p>
+                    <div class="flex items-center">
+                        <div class="flex -space-x-4">
+                            <img src="https://i.imgur.com/IbHUxjk.png" alt="Cliente 1" class="w-12 h-12 rounded-full border-2 border-bgMain bg-white object-contain p-1">
+                            <img src="https://static.wixstatic.com/media/f3f52a_b7142641afba48ae9567745dcc8f4f5f~mv2.png/v1/fill/w_150,h_150,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/22.png" alt="Cliente 2" class="w-12 h-12 rounded-full border-2 border-bgMain bg-white object-contain p-1">
+                            <img src="https://static.wixstatic.com/media/f3f52a_bce092883bc54eb9b02a7859617ffec9~mv2.png/v1/fill/w_150,h_150,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/23.png" alt="Cliente 3" class="w-12 h-12 rounded-full border-2 border-bgMain bg-white object-contain p-1">
+                        </div>
+                        <span class="ml-4 text-sm font-semibold text-gray-200">+900 clientes ativos</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO 2: O PROBLEMA (Sessão de Dor) -->
+    <section class="bg-bgDark py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold mt-4 mb-6">
+                    Se identifica com alguns dos cenários abaixo? A sua empresa <span class="text-red-500">pode estar em risco!</span>
+                </h2>
+            </div>
+
+            <!-- Cards Isométricos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-bgMain p-8 rounded-xl border-t-4 border-transparent hover:border-primary hover:-translate-y-2 transition-all duration-300 shadow-lg reveal">
+                    <div class="w-12 h-12 rounded-lg bg-bgDark flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold mb-3 text-white">Funcionário parado</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Seu funcionário perde a manhã inteira na fila da clínica <strong class="text-gray-200">Tempo é dinheiro perdido.</strong>
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-bgMain p-8 rounded-xl border-t-4 border-transparent hover:border-primary hover:-translate-y-2 transition-all duration-300 shadow-lg reveal delay-100">
+                    <div class="w-12 h-12 rounded-lg bg-bgDark flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold mb-3 text-white">Recebeu notificação</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Peso da não conformidade através de multas, fiscalizações ou notificações do Ministério do Trabalho para regularização.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-bgMain p-8 rounded-xl border-t-4 border-transparent hover:border-primary hover:-translate-y-2 transition-all duration-300 shadow-lg reveal delay-200">
+                    <div class="w-12 h-12 rounded-lg bg-bgDark flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="font-oswald text-xl font-bold mb-3 text-white">Demora da clinica</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A sua clínica atual não te da retorno e demora na entrega do ASO.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal">
+                <a href="#contato" class="inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold tracking-wide text-primary border-2 border-primary hover:bg-primary hover:text-white rounded-md transition-all duration-300 shadow-[0_5px_15px_rgba(0,162,165,0.2)] hover:-translate-y-1">
+                    Quero mais informações
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO 3: O MÉTODO (Gantt Chart / Timeline) -->
+    <section class="bg-bgMain py-24 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="max-w-3xl mb-16 reveal">
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold mt-4 mb-6">
+                    Nosso método foi desenhado para causar <span class="text-primary">Zero impacto na rotina</span>
+                </h2>
+            </div>
+
+            <!-- Custom Timeline / Gantt style -->
+            <div class="relative mt-12 reveal">
+                <!-- Linha base horizontal desktop / vertical mobile -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-bgDark/50 -translate-y-1/2 rounded-full"></div>
+                <div class="md:hidden absolute top-0 left-6 w-1 h-full bg-bgDark/50 rounded-full"></div>
+
+                <div class="flex flex-col md:flex-row justify-between gap-8 md:gap-4 relative z-10">
+                    
+                    <!-- Etapa 1 -->
+                    <div class="relative flex md:flex-col items-start md:items-center">
+                        <div class="w-12 h-12 rounded-full bg-bgDark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg mb-0 md:mb-6 shrink-0 shadow-[0_0_15px_rgba(0,162,165,0.5)] z-10">1</div>
+                        <div class="ml-6 md:ml-0 md:text-center md:max-w-[200px]">
+                            <h4 class="font-oswald font-bold text-lg mb-2 text-white">O Raio X Ocupacional</h4>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 2 -->
+                    <div class="relative flex md:flex-col items-start md:items-center">
+                        <div class="w-12 h-12 rounded-full bg-bgDark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg mb-0 md:mb-6 shrink-0 z-10">2</div>
+                        <div class="ml-6 md:ml-0 md:text-center md:max-w-[200px]">
+                            <h4 class="font-oswald font-bold text-lg mb-2 text-white">Unidade Móvel In Company</h4>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 3 -->
+                    <div class="relative flex md:flex-col items-start md:items-center">
+                        <div class="w-12 h-12 rounded-full bg-bgDark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg mb-0 md:mb-6 shrink-0 z-10">3</div>
+                        <div class="ml-6 md:ml-0 md:text-center md:max-w-[200px]">
+                            <h4 class="font-oswald font-bold text-lg mb-2 text-white">Integração Tecnológica</h4>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 4 -->
+                    <div class="relative flex md:flex-col items-start md:items-center">
+                        <div class="w-12 h-12 rounded-full bg-bgDark border-2 border-primary flex items-center justify-center text-primary font-bold text-lg mb-0 md:mb-6 shrink-0 shadow-[0_0_15px_rgba(0,162,165,0.5)] z-10">4</div>
+                        <div class="ml-6 md:ml-0 md:text-center md:max-w-[200px]">
+                            <h4 class="font-oswald font-bold text-lg mb-2 text-white">Plano de Ação</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO 4: FEATURES (Z-Pattern) -->
+    <section class="bg-bgDark py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <span class="text-[11px] font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">SOLUÇÕES</span>
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold mt-4 mb-6">
+                    A melhor assessoria de medicina & segurança do trabalho <span class="text-primary">de GOIAS</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    Aceleramos o seu dia-a-dia com conformidade
+                </p>
+            </div>
+
+            <!-- Bloco 1 -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-24 reveal">
+                <div class="w-full lg:w-1/2">
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest mb-3">ATENDIMENTO IN LOCO</p>
+                    <h3 class="font-oswald text-3xl md:text-4xl font-bold mb-6 text-white">Unidade Móvel</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">A clínica vai até você:</strong> Exames clínicos, audiológicos, oftalmológicos, coletas e Raio-X Digital (RDC 330) realizados no seu pátio.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">Zero perda de produtividade:</strong> O funcionário faz o exame e volta imediatamente para o posto de trabalho.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2 relative group flex items-center justify-center">
+                    <img src="https://i.imgur.com/qQWtnVU.png" alt="Atendimento In Loco Ipê Labor" class="w-full h-[400px] lg:h-[500px] object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+            </div>
+
+            <!-- Bloco 2 -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20 mb-24 reveal">
+                <div class="w-full lg:w-1/2">
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest mb-3">ASO 100% DIGITAL</p>
+                    <h3 class="font-oswald text-3xl md:text-4xl font-bold mb-6 text-white">Gestão de Dados e eSocial em Tempo Real</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">Emissão via Biometria:</strong> ASO digital com coleta de biometria in loco, impossibilitando fraudes processuais no futuro.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">Sistema totalmente integrado:</strong> O evento (S-2220/S-2240) sobe para a nuvem governamental no momento exato do atendimento.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2 relative group flex items-center justify-center">
+                    <img src="https://i.imgur.com/wE6QuhW.png" alt="ASO Digital em Tempo Real" class="w-full h-[400px] lg:h-[500px] object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+            </div>
+
+            <!-- Bloco 3 -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 reveal">
+                <div class="w-full lg:w-1/2">
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest mb-3">REDUÇÃO DE CUSTOS (FAP)</p>
+                    <h3 class="font-oswald text-3xl md:text-4xl font-bold mb-6 text-white">Assessoria Estratégica e Risco Psicossocial (NR-1)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">Metodologia Internacional:</strong> Aplicação do padrão (HSE / COPSOQ) 100% anônima para mapear riscos mentais com validade jurídica.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
+                                <svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <p class="ml-4 text-gray-300 leading-relaxed"><strong class="text-white">Cuidado Financeiro:</strong> Plano de ação focado na redução da alíquota do FAP, gerando economia real em impostos na folha de pagamento.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/2 relative group flex items-center justify-center">
+                    <img src="https://i.imgur.com/CftQdP4.png" alt="Consultoria e Mapa de Calor NR-1" class="w-full h-[400px] lg:h-[500px] object-contain transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                </div>
+            </div>
+
+            <div class="mt-20 text-center reveal">
+                <a href="#contato" class="btn-shine inline-flex items-center justify-center px-8 py-4 text-base font-bold tracking-wide text-white bg-primary hover:bg-primaryHover rounded-md transition-all duration-300 shadow-[0_10px_25px_rgba(0,162,165,0.4)] hover:-translate-y-1">
+                    Quero mais informações
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SESSÃO 5: PROVA E TRAÇÃO (Selo SOC) -->
+    <!-- Utiliza mix-blend para o background com parallax simples usando bg-fixed -->
+    <section class="relative py-28 bg-bgMain bg-[url('https://images.unsplash.com/photo-1541888082463-5494d9302685?q=80&w=2000&auto=format&fit=crop')] bg-fixed bg-center bg-cover">
+        <div class="absolute inset-0 bg-bgMain/80"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Coluna Esquerda: Métricas -->
+                <div class="w-full lg:w-3/5 reveal-left relative p-8 md:p-12 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,26,35,0.5)] border border-white/10">
+                    <!-- Imagem de fundo específica atrás do texto -->
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1600&auto=format&fit=crop" alt="Transportadoras e Indústrias" class="absolute inset-0 w-full h-full object-cover opacity-20 z-0 mix-blend-luminosity">
+                    <!-- Gradiente de sobreposição para garantir legibilidade absoluta do texto -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-bgDark/95 via-bgMain/85 to-primary/20 z-0"></div>
+                    
+                    <!-- Conteúdo do Texto -->
+                    <div class="relative z-10">
+                        <span class="text-[11px] font-bold text-primary uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm">QUEM CONFIA, COMPROVA</span>
+                        <h2 class="font-oswald text-4xl md:text-5xl font-bold mt-6 mb-6 text-white">
+                            Estrutura de atendimento Nacional, <br><span class="text-primary">Agilidade Regional</span>
+                        </h2>
+                        <p class="text-gray-300 text-lg mb-12 max-w-xl">
+                            O parceiro escolhido pelas maiores transportadoras, construtoras e redes de postos de combustíveis
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="border-l-2 border-primary pl-6">
+                                <p class="text-4xl font-oswald font-bold text-white mb-2">+ 900</p>
+                                <p class="text-sm text-gray-400">Empresas Ativas geridas sob alta conformidade legal.</p>
+                            </div>
+                            <div class="border-l-2 border-primary pl-6">
+                                <p class="text-4xl font-oswald font-bold text-white mb-2">+ 7.000</p>
+                                <p class="text-sm text-gray-400">Vidas e funcionários monitorados mensalmente.</p>
+                            </div>
+                            <div class="border-l-2 border-primary pl-6 sm:col-span-2">
+                                <p class="text-4xl font-oswald font-bold text-white mb-2">Até 50%</p>
+                                <p class="text-sm text-gray-400 max-w-sm">De redução na alíquota do FAP (RAT) gerada por ações eficientes de CIPA e Planos de Ação executados pela Ipê.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Imagem Âncora -->
+                <div class="w-full lg:w-2/5 flex flex-col items-center reveal-right">
+                    <div class="glass-card p-10 rounded-2xl w-full max-w-sm flex flex-col items-center shadow-2xl relative hover:-translate-y-2 transition-transform duration-500">
+                        <img src="https://static.wixstatic.com/media/f3f52a_f167b0cc204f4733be5eb6459e210083~mv2.png/v1/fill/w_558,h_600,al_c,q_85,enc_avif,quality_auto/f3f52a_f167b0cc204f4733be5eb6459e210083~mv2.png" alt="Selo SOC Ipê Labor" class="w-48 h-auto object-contain drop-shadow-[0_0_20px_rgba(0,162,165,0.4)]">
+                        <div class="mt-8 text-center border-t border-white/10 pt-6">
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                <strong class="text-white">Chancelados com o Selo SOC de Qualidade</strong><br>A maior tecnologia em gestão ocupacional do Brasil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO 6: FAQ B2B -->
+    <section class="bg-bgDark py-24">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <div class="text-center mb-16">
+                <span class="text-[11px] font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">PERGUNTAS FREQUENTES</span>
+                <h2 class="font-oswald text-3xl md:text-5xl font-bold mt-4 mb-6">
+                    Respostas para o <span class="text-primary">RH e Diretoria</span>
+                </h2>
+            </div>
+
+            <!-- Accordions -->
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-bgMain rounded-lg border border-white/5 overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(1)">
+                        <span class="font-bold text-white pr-8">A Unidade Móvel consegue atender a NR-1 e os exames de Raio-X na minha transportadora?</span>
+                        <svg id="faq-icon-1" class="w-5 h-5 text-primary shrink-0 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div id="faq-content-1" class="faq-content bg-[#002f3f]">
+                        <p class="px-6 pb-5 pt-2 text-sm text-gray-300 leading-relaxed">
+                            Sim. Nossa Van é equipada com Raio-X móvel (com liberação RDC 330) e todos os exames clínicos. Nossa equipe aplica o levantamento da NR-1 no local ou de forma digital, sem deslocar sua equipe.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-bgMain rounded-lg border border-white/5 overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(2)">
+                        <span class="font-bold text-white pr-8">Como vocês garantem a validação jurídica dos testes psicossociais?</span>
+                        <svg id="faq-icon-2" class="w-5 h-5 text-primary shrink-0 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div id="faq-content-2" class="faq-content bg-[#002f3f]">
+                        <p class="px-6 pb-5 pt-2 text-sm text-gray-300 leading-relaxed">
+                            Utilizamos metodologias chanceladas internacionalmente (Padrão HSE e COPSOQ). O questionário é totalmente anônimo e as informações não ficam vinculadas ao CPF do funcionário no preenchimento, garantindo prova irrefutável frente ao Ministério do Trabalho.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-bgMain rounded-lg border border-white/5 overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(3)">
+                        <span class="font-bold text-white pr-8">Minha empresa já possui um sistema, vocês se integram a ele?</span>
+                        <svg id="faq-icon-3" class="w-5 h-5 text-primary shrink-0 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div id="faq-content-3" class="faq-content bg-[#002f3f]">
+                        <p class="px-6 pb-5 pt-2 text-sm text-gray-300 leading-relaxed">
+                            Utilizamos o Sistema SOC, o mais robusto do mercado, que permite exportação de relatórios gerenciais e acompanhamento preciso. A carga e envio do eSocial é feita automaticamente por nós.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-bgMain rounded-lg border border-white/5 overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFAQ(4)">
+                        <span class="font-bold text-white pr-8">Como funciona o Diagnóstico (Raio X Ocupacional) em 7 dias?</span>
+                        <svg id="faq-icon-4" class="w-5 h-5 text-primary shrink-0 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                    <div id="faq-content-4" class="faq-content bg-[#002f3f]">
+                        <p class="px-6 pb-5 pt-2 text-sm text-gray-300 leading-relaxed">
+                            Para empresas com + de 20 vidas, nosso time de engenharia e medicina audita seus PGRs, PCMSOs e envios do eSocial gratuitamente. Em 7 dias, entregamos um check-list com as inconformidades e falhas que estão gerando risco de multas para o seu CNPJ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÃO 7: CTA FINAL (Formulário Glassmorphism) -->
+    <section id="contato" class="bg-bgMain py-24 relative overflow-hidden">
+        <!-- Decoration elements -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary rounded-full mix-blend-multiply filter blur-[120px] opacity-20 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#001A23] rounded-full mix-blend-multiply filter blur-[120px] opacity-40 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <!-- Coluna Esquerda -->
+                <div class="w-full lg:w-1/2 reveal-left">
+                    <h2 class="font-oswald text-4xl md:text-5xl font-bold mb-10 text-white leading-tight">
+                        Dar o próximo passo leva <span class="text-primary">menos de um minuto</span>
+                    </h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-full bg-bgDark border border-primary flex items-center justify-center text-primary font-bold text-sm mt-1">1</div>
+                            <div class="ml-5">
+                                <h4 class="font-bold text-xl text-white mb-2">Preencha o formulário ao lado</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Envie suas informações de contato e o porte da sua empresa</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="shrink-0 w-10 h-10 rounded-full bg-bgDark border border-primary flex items-center justify-center text-primary font-bold text-sm mt-1">2</div>
+                            <div class="ml-5">
+                                <h4 class="font-bold text-xl text-white mb-2">Receba uma ligação</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">Um dos nossos especialistas analisará e entrará em contato</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita (Formulário) -->
+                <div class="w-full lg:w-1/2 reveal-right">
+                    <div class="glass-card p-8 md:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,26,35,0.5)] border border-white/10 relative">
+                        
+                        <form onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');" class="space-y-5">
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Nome Completo *</label>
+                                <input type="text" required class="w-full bg-bgDark/50 border border-white/10 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Como devemos chamar você?">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">E-mail Corporativo *</label>
+                                <input type="email" required class="w-full bg-bgDark/50 border border-white/10 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="seu.nome@empresa.com.br">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">WhatsApp / Telefone *</label>
+                                <input type="tel" required class="w-full bg-bgDark/50 border border-white/10 rounded-md px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="(00) 00000-0000">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Colaboradores *</label>
+                                    <select required class="w-full bg-bgDark/50 border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Selecione...</option>
+                                        <option value="menos-20">Menos de 20</option>
+                                        <option value="20-50">20 a 50</option>
+                                        <option value="51-150">51 a 150</option>
+                                        <option value="mais-150">+ de 150</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Seu Cargo *</label>
+                                    <select required class="w-full bg-bgDark/50 border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Selecione...</option>
+                                        <option value="dono">Sócio / Dono</option>
+                                        <option value="diretor">Diretor (Fin/Op)</option>
+                                        <option value="rh">RH / DP</option>
+                                        <option value="sesmt">SESMT / Engenharia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full btn-shine mt-4 flex items-center justify-center px-6 py-4 text-base font-bold tracking-wide text-white bg-primary hover:bg-primaryHover rounded-md transition-all duration-300 shadow-[0_5px_15px_rgba(0,162,165,0.3)] hover:-translate-y-0.5">
+                                SOLICITAR DIAGNÓSTICO →
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bgDark py-8 border-t border-white/5 text-center">
+        <p class="text-sm text-gray-500">© 2026 Ipê Labor - Medicina e Segurança do Trabalho. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Sticky Header / Glassmorphism on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Scroll Reveal Logic (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Reveal only once
+                }
+            });
+        }, { rootMargin: "0px 0px -100px 0px" });
+        
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // FAQ Accordion Logic
+        function toggleFAQ(id) {
+            const content = document.getElementById('faq-content-' + id);
+            const icon = document.getElementById('faq-icon-' + id);
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(45deg)';
+            }
+        }
+    </script>
+</body>
+</html>
